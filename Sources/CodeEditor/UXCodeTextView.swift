@@ -27,8 +27,7 @@ import Highlightr
  * Currently pretty tightly coupled to `CodeEditor`.
  */
 final class UXCodeTextView: UXTextView {
-  
-  fileprivate let highlightr = Highlightr()
+    fileprivate let highlightr = CodeEditor.highlightr
   
   private var hlTextStorage : CodeAttributedString? {
     return textStorage as? CodeAttributedString
@@ -152,7 +151,7 @@ final class UXCodeTextView: UXTextView {
   #if os(iOS)
     override func insertText(_ text: String) {
         super.insertText(text)
-        guard isAutoPairEnabled              else { return }       
+        guard isAutoPairEnabled              else { return }
         guard let end = autoPairCompletion[text] else { return }
         let prev = self.selectedRange
         super.insertText(end)

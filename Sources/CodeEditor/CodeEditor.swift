@@ -145,6 +145,7 @@ import Highlightr
  * for its SVG and Swift editor parts.
  */
 public struct CodeEditor: View {
+    public static var highlightr = Highlightr()
   
   /// Returns the available themes in the associated Highlightr package.
   public static var availableThemes =
